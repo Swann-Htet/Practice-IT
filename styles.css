@@ -155,3 +155,12 @@ ol.rules li{margin:6px 0}
 .resume b{color:var(--red)}
 .saved{font-size:12px;color:rgba(255,255,255,.85);display:inline-flex;gap:5px;align-items:center}
 
+
+.qgrid{columns:2 340px;column-gap:14px}
+.qcard{break-inside:avoid;margin:0 0 14px}
+.qlist{list-style:none;margin:0;padding:0}
+.qlist li{display:flex;gap:8px;padding:5px 0;border-bottom:1px dashed var(--line);line-height:1.35}
+.qlist li:last-child{border:0}
+.qlist b{flex:0 0 auto;max-width:48%;color:var(--red)}
+.qa{color:var(--mut);flex:none}
+@media print{.bar,.foot,.hero .btn{display:none!important}}

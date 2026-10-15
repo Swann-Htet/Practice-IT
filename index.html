@@ -31,6 +31,7 @@
     <div class="hero">
       <h1>IT07 Practice</h1>
       <p>Lecturer (LMS) questions and the Exit Exam sheet, turned into multiple choice. Your answers are saved automatically.</p>
+      <p><button class="btn" id="quickBtn">Quick short notes</button></p>
     </div>
     <div class="kpis">
       <div class="kpi"><b id="kTotal">267</b><span>Questions</span></div>
@@ -77,6 +78,15 @@
         <button class="btn solid" id="go">Start exam <i data-ic="arrow"></i></button>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- QUICK NOTES -->
+<section id="quick" class="view hidden">
+  <div class="col" style="max-width:1100px;flex:1 1 100%">
+    <div class="hero"><h1>Quick short notes</h1><p>One line per fact: term &rarr; answer. Read this the night before the exam.</p>
+      <p><button class="btn" id="quickBack">&larr; Back to practice</button> <button class="btn" id="quickPrint">Print</button></p></div>
+    <div id="quickList" class="qgrid"></div>
   </div>
 </section>
 
@@ -130,6 +140,7 @@
 <div id="lb" class="hidden"><img alt=""></div>
 
 <script src="data/questions.js"></script>
+<script src="data/quick.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

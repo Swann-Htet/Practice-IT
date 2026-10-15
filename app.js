@@ -30,7 +30,7 @@ const store = {
 };
 
 let deck = [], cur = 0, mode = 'practice', t0 = 0, tick = null, elapsed = 0, lastWrong = [], phase = 'home';
-function view(id) { phase = id; ['home','exam','result'].forEach(v => $(v).classList.toggle('hidden', v !== id)); }
+function view(id) { phase = id; ['home','exam','result','quick'].forEach(v => $(v).classList.toggle('hidden', v !== id)); }
 function ui(on) { ['timer','ans','finish','quit','saved'].forEach(i => $(i).classList.toggle('hidden', !on)); $('palBtn').classList.toggle('hidden', !on); }
 
 /* ---------- persistence ---------- */
@@ -214,6 +214,12 @@ function showResult() {
 }
 $('again').onclick = () => { store.del(SKEY); view('home'); };
 $('redo').onclick = () => { if (lastWrong.length) start(shuffle(lastWrong.map(d => d.q))); };
+
+/* ---------- quick short notes ---------- */
+$('quickList').innerHTML = window.QUICK.map(g => `<div class="panel qcard"><h2>${esc(g.h)}</h2><div class="in"><ul class="qlist">${g.r.map(x => `<li><b>${esc(x[0])}</b><span class="qa">&rarr;</span><span>${esc(x[1])}</span></li>`).join('')}</ul></div></div>`).join('');
+$('quickBtn').onclick = () => { view('quick'); window.scrollTo(0, 0); };
+$('quickBack').onclick = () => { view('home'); window.scrollTo(0, 0); };
+$('quickPrint').onclick = () => window.print();
 
 /* ---------- boot ---------- */
 loadPrefs();
